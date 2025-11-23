@@ -19,133 +19,157 @@
   <link rel="stylesheet" href="../css/C-indv-spots.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&family=Zen+Maru+Gothic:wght@300;400;500&display=swap" rel="stylesheet">
   <title>JUANA</title>
   <style type="text/css">
-    @font-face {
-      font-family: 'Shippori Gochic';
-      src: url(../fonts/ShipporiGothicB2-Bold.ttf);
-    }
+    /* ===== Font Settings ===== */
+@font-face {
+  font-family: 'Shippori Gochic';
+  src: url(../fonts/ShipporiGothicB2-Bold.ttf);
+}
+@font-face {
+  font-family: 'Shippori Gochic OTF';
+  src: url(../fonts/ShipporiGothicB2-OTF-Bold.otf);
+}
 
-    @font-face {
-      font-family: 'Shippori Gochic OTF';
-      src: url(../fonts/ShipporiGothicB2-OTF-Bold.otf);
-    }
+:root {
+  --radius-large: 3vw;
+  --spacing-wide: 0.2em;
+  --font-main: "Shippori Gochic", sans-serif;
+  --font-text: "Zen Maru Gothic", sans-serif;
+  --shadow-neumorphism-1: 20px 20px 60px #d9cfc1, -20px -20px 60px #ffffff;
+  --shadow-neumorphism-2: 20px 20px 60px #d7d5c1, -20px -20px 60px #ffffff;
+  --shadow-neumorphism-3: 20px 20px 60px #d3d2cf, -20px -20px 60px #ffffff;
+  --container-padding: clamp(40px, 2.5vw, 123px);
+}
 
-    .contents picture img {
-      border-radius: 3vw;
-    }
+/* ===== Global Typography ===== */
+.contents h1,
+.contents h2,
+.top-scroll h1{
+  font-family: var(--font-main);
+}
+.contents p,
+.top-scroll p {
+  font-family: var(--font-text);
+}
 
-    .contents h1,
-    .contents h2,
-    .contents p,
-    .top-scroll h1,
-    .top-scroll p {
-      font-family: "Shippori Gochic", sans-serif;
-    }
+/* ===== Image Styling ===== */
+.contents .container-fluid:nth-child(1) picture img {
+  border-radius: var(--radius-large);
+  background: #FFF4E3;
+  box-shadow: var(--shadow-neumorphism-1);
+}
+.contents .container-fluid:nth-child(2) picture img {
+  border-radius: var(--radius-large);
+  background: #fdfbe3;
+  box-shadow: var(--shadow-neumorphism-2);
+}
+.contents .container-fluid:nth-child(3) picture img {
+  border-radius: var(--radius-large);
+  background: #F8F7F4;
+  box-shadow: var(--shadow-neumorphism-3);
+}
 
-    .contents .container-fluid {
-      padding-top: clamp(40px, 6vw, 123px);
-      padding-bottom: clamp(40px, 6vw, 123px);
-    }
+/* ===== Section Padding ===== */
+.contents .container-grad-1,.contents .container-grad-2 {
+  padding-block: var(--container-padding);
+}
 
-    @media screen and (max-width:991px) {
-      .contents .container .row:nth-child(1) img {
-        aspect-ratio: 19/12;
-        object-fit: cover;
-      }
-    }
+.contents .container-grad-1 {
+  background: linear-gradient(to bottom, #FFF4E3 0%, #FFF6E3 15%,#FEF8E3 40%,#FeF9E3 65%,#FDFBE3 90%, #FDFBE3 100%);
+}
 
-    .contents .container .row:nth-child(2) .col {
-      text-align: right;
-    }
+.contents .container-grad-2 {
+  background: linear-gradient(to bottom, #fdfbe3 0%, #FCFAE7 15%,#FBF9EC 40%,#F9F8F0 65%,#F8F7F4 90%, #F8F7F4 100%);
+}
 
-    .contents .container-fluid:nth-child(even) .container .row:nth-child(2) .col {
-      text-align: left;
-    }
+/* ===== Responsive Image Aspect (SP) ===== */
+@media (max-width: 991px) {
+  .contents .container .row:nth-child(1) img {
+    aspect-ratio: 19/12;
+    object-fit: cover;
+  }
+}
 
-    .contents .container-fluid .container .row:nth-child(2) img {
-      max-height: 70%;
-      width: auto;
-      padding-right: 5vw;
-      transform: translateY(20%);
-    }
-
-    .contents .container-fluid:nth-child(even) .container .row:nth-child(2) img {
-      max-height: 70%;
-      width: auto;
-      padding-right: unset;
-      padding-left: 5vw;
-      transform: translateY(20%);
-    }
-
-    .contents h1 {
-      left: 4vw;
-      bottom: 0;
-      transform: translate(0, 50%);
-      padding: 1rem 2rem;
-      border-radius: 3vw;
-      letter-spacing: 0.5em;
-    }
-
-    .contents .container-fluid:nth-child(even) h1 {
-      left: unset;
-      right: 4vw;
-    }
-
-    @media screen and (max-width:991px) {
-      .contents h2 {
-        left: 50%;
-        bottom: 0;
-        padding: 0.5rem 0.9rem;
-        transform: translate(-50%, 50%);
-        text-align: center;
-        border-radius: 3vw;
-        letter-spacing: 0.4em;
-        z-index: 2;
-        white-space: nowrap;
-      }
-    }
-
-    .contents p {
-      position: relative;
-      margin-left: calc(4vw + 2rem);
-      margin-top: calc(1.375rem + 1.8vw);
-      z-index: 2;
-      line-height: 2.3;
-      letter-spacing: 0.3em;
-    }
-
-    .contents .container-fluid:nth-child(even) p {
-      margin-left: unset;
-      margin-right: calc(4vw + 2rem);
-      text-align: right;
-    }
-
-    @media screen and (max-width:991px) {
-      .contents p {
-        text-align: center !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-      }
-    }
+/* ===== Text Alignment for Alternating Blocks ===== */
+.contents .container .row:nth-child(2) .col {
+  text-align: right;
+}
+.contents .container-fluid:nth-child(even) .container .row:nth-child(2) .col {
+  text-align: left;
+}
 
 
+/* ===== Headings ===== */
+.contents h1 {
+  position: absolute;
+  left: 4vw;
+  bottom: 0;
+  transform: translateY(50%);
+  padding: 1rem 2rem;
+  border-radius: var(--radius-large);
+  letter-spacing: var(--spacing-wide);
+}
+.contents .container-fluid:nth-child(even) h1 {
+  left: unset;
+  right: 4vw;
+}
 
-    .contents .container-fluid:after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      width: 100%;
-      height: calc((1.47rem + 1.3vw)*1.5);
-    }
+/* ===== h2 (SP version) ===== */
+@media (max-width: 991px) {
+  .contents h2 {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 50%);
+    text-align: center;
+    border-radius: var(--radius-large);
+    letter-spacing: 0.4em;
+    padding: 0.5rem 0.9rem;
+    z-index: 2;
+    white-space: nowrap;
+  }
+}
 
+/* ===== Paragraphs ===== */
+.contents p {
+  position: relative;
+  margin-left: calc(4vw + 2rem);
+  margin-top: 4.5rem;
+  z-index: 2;
+  line-height: 2;
+  letter-spacing: 0.12em;
+}
+.contents .container-fluid:nth-child(even) p {
+  margin-left: unset;
+  margin-right: calc(4vw + 2rem);
+  text-align: right;
+}
 
-    @media screen and (max-width:575px) {
-      .contents br {
-        display: none;
-      }
-    }
+/* SP paragraph alignment */
+@media (max-width: 991px) {
+  .contents p {
+    text-align: center !important;
+    margin-inline: 0 !important;
+  }
+}
+
+/* ===== Decorative Separator ===== */
+.contents .container-fluid::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  height: calc((1.47rem + 1.3vw) * 1.5);
+}
+
+/* ===== Hide Line Breaks on Small Screens ===== */
+@media (max-width: 575px) {
+  .contents br {
+    display: none;
+  }
+}
   </style>
 </head>
 <body>
@@ -164,10 +188,7 @@
             <a class="nav-link active" aria-current="page" href="../index.html">ホーム</a>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              目的で探す
-            </a>
+            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"> 目的で探す </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li><a class="dropdown-item" href="../eat.html">食事</a></li>
               <li><a class="dropdown-item" href="../sightseeing.html">観光</a></li>
@@ -205,8 +226,8 @@
         </div>
         <div class="position-relative" style="height: 100vh; ">
           <div class="position-absolute" style="top: 50%; left: 25%; transform: translate(-50%,-50%);color: white;">
-            <h1 style="letter-spacing: 0.45em; line-height: 1.6;">地元野菜たっぷり<br>日替わりランチ</h1>
-            <p style="line-height: 2.3;letter-spacing: 0.3em; margin-top: 2vw;">兵庫県朝来市に佇む小さなカフェ。<br> 地元野菜をたっぷり使った日替わりランチと、<br> 手作りのパンが心を温めてくれます。<br> 美味しいランチと木の温もり感じる心地よい空間に<br> あなたもきっと虜になる事間違いなし！ </p>
+            <h1 style="letter-spacing: 0.15em; line-height: 1.6;">地元野菜たっぷり<br>日替わりランチ</h1>
+            <p style="line-height: 1.8;letter-spacing: 0.15em; margin-top: 2vw;">兵庫県朝来市に佇む小さなカフェ。<br> 地元野菜をたっぷり使った日替わりランチと、<br> 手作りのパンが心を温めてくれます。<br> 美味しいランチと木の温もり感じる心地よい空間に<br> あなたもきっと虜になる事間違いなし！ </p>
           </div>
         </div>
       </div>
@@ -214,73 +235,75 @@
     <div id="caption_sm">
       <picture>
         <source srcset="https://lh3.googleusercontent.com/d/17gdSPUltiwq-BxcCPrZmGFAdZ1Rm7O2a" type="image/webp">
-        <img id="top" src="https://lh3.googleusercontent.com/d/1Z6-vZQxsb1dG0pGci22FzWrvSBmxxBxh" alt="JUANAのパスタ">
+        <img id="top" src="https://lh3.googleusercontent.com/d/1Z6-vZQxsb1dG0pGci22FzWrvSBmxxBxh">
       </picture>
     </div>
   </div>
   <div id="xh" class="contents">
-    <div class="container-fluid position-relative px-0" style="background-color: #FFF4E3; color: #383531;">
+    <div class="container-fluid position-relative px-0" style="background-color: #FFF4E3; color: #383531; padding-top:clamp(40px, 6vw, 123px) ">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 position-relative">
             <picture>
               <source srcset="https://lh3.googleusercontent.com/d/1PuQ6_uXsYUPmePgMBbo01RfnyDo-bdsk" type="image/webp">
-              <img src="https://lh3.googleusercontent.com/d/1oxiFXGQvs9WTP6zWNT0PkBA_JBWANQSP" alt="JUANAのパスタ">
+              <img src="https://lh3.googleusercontent.com/d/1oxiFXGQvs9WTP6zWNT0PkBA_JBWANQSP" alt="JUANAのパスタ" class="menu_pic">
             </picture>
-            <h1 class="position-absolute d-none d-lg-block" style="background-color:#FFF4E3;">きまぐれランチ</h1>
+            <h1 class="position-absolute d-none d-lg-block" style="background-color:#FFFFFF;">きまぐれランチ</h1>
             <h2 class="position-absolute d-lg-none" style="background-color:#FFF4E3;">きまぐれランチ</h2>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-auto px-lg-0">
-            <p>名前の通りその日によってメニューがバラバラです<br> チキンカツのような食べ応えのあるものから<br> パスタなどの洋風なものまで本当に色々あります<br> ですが、どのメニューも美味しく味は折り紙付きです！</p>
+          <div class="col-lg-10 px-lg-0">
+            <p>名前の通り、その日によってメニューがさまざまに変わります。<br> チキンカツのように食べ応えのある一品から、<br>パスタといった洋風メニューまで本当にバリエーション豊かです。<br> どのメニューも美味しく、味は折り紙付きです！</p>
           </div>
-          <div class="col px-0 d-none d-lg-block">
-            <img style="max-width: 100%; height: auto;" src="../img/spots/asago/juana/1illust.svg" alt="">
+          <div class="col-lg-2 px-0 d-none d-lg-block">
+            <img style="width: 70%; transform:translateY(30%);" src="../img/spots/asago/juana/1illust.svg" alt="">
           </div>
         </div>
       </div>
+      <div class="container-grad-1"></div>
     </div>
-    <div class="container-fluid position-relative px-0 " style="background-color: #FFFDE0; color: #383831;">
+    <div class="container-fluid position-relative px-0 " style="background-color: #fdfbe3; color: #383831;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 position-relative">
             <picture>
               <source srcset="https://lh3.googleusercontent.com/d/1ulGjXS565VxLSd3VZS2fTibxsDTLO1OW" type="image/webp">
-              <img src="https://lh3.googleusercontent.com/d/1rSK7F2A79WnfZVXosS_2kTiWLPY5Q72I" alt="JUANAの野菜スープ">
+              <img src="https://lh3.googleusercontent.com/d/1rSK7F2A79WnfZVXosS_2kTiWLPY5Q72I" alt="JUANAの野菜スープ" class="menu_pic">
             </picture>
-            <h1 class="position-absolute d-none d-lg-block" style="background-color:#FFFDE0;">野菜スープ</h1>
-            <h2 class="position-absolute d-lg-none" style="background-color:#FFFDE0;">野菜スープ</h2>
+            <h1 class="position-absolute d-none d-lg-block" style="background-color:#FFFFFF;">野菜スープ</h1>
+            <h2 class="position-absolute d-lg-none" style="background-color:#fdfbe3;">野菜スープ</h2>
           </div>
         </div>
         <div class="row justify-content-lg-end justify-content-center">
-          <div class="order-2 col-auto px-lg-0">
-            <p>どのランチメニューに含まれている、私のお気に入りの一品です<br> 野菜は日替わりで様々ですが、どのスープもほんのりとした<br> 野菜の風味が感じられ、とても優しい味わいです<br> お好みで岩塩などの色々な種類の塩をかける事もでき<br> 自分だけの味にアレンジできます</p>
+          <div class="order-2 col-lg-10 px-lg-0">
+            <p>すべてのランチメニューに添えられる、個人的にお気に入りの一品です。<br> 日替わりの野菜をたっぷり使ったスープは、ほんのり野菜の風味が感じられる優しい味わいです。<br>お好みで岩塩など数種類の塩を加えて、自分だけの味にアレンジするのもおすすめです。</p>
           </div>
-          <div class="order-1 col px-0 d-none d-lg-block">
-            <img src="../img/spots/asago/juana/2illust.svg" alt="">
+          <div class="order-1 col-lg-2 px-0 d-none d-lg-block">
+            <img style="width: 70%; transform:translateY(30%);" src="../img/spots/asago/juana/2illust.svg" alt="">
           </div>
         </div>
       </div>
+      <div class="container-grad-2"></div>
     </div>
-    <div class="container-fluid position-relative px-0" style="background-color: #F8F7F4; color: #313638;">
+    <div class="container-fluid position-relative px-0" style="background-color: #F8F7F4; color: #313638; padding-bottom:clamp(40px, 6vw, 123px)">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 position-relative">
             <picture>
               <source srcset="https://lh3.googleusercontent.com/d/1IcOqT5_YXvTk6PDSz-U1Z8cD_ZgsI0Bu" type="image/webp">
-              <img src="https://lh3.googleusercontent.com/d/1es4TkY9MMvvgOl-H2_A16T5Ho9ZTHvR9" alt="JUANAのごはんランチ">
+              <img src="https://lh3.googleusercontent.com/d/1es4TkY9MMvvgOl-H2_A16T5Ho9ZTHvR9" alt="JUANAのごはんランチ" class="menu_pic">
             </picture>
-            <h1 class="position-absolute d-none d-lg-block" style="background-color:#F8F7F4;">ごはんランチ</h1>
+            <h1 class="position-absolute d-none d-lg-block" style="background-color:#FFFFFF;">ごはんランチ</h1>
             <h2 class="position-absolute d-lg-none" style="background-color:#F8F7F4;">ごはんランチ</h2>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-auto px-0">
+          <div class="col-lg-10 px-0">
             <p>ごはん物のランチメニューです<br> アジア風味の少し海外テイストの物から<br> 鶏つくね丼のようなあっさりとしたものまで...<br> こちらも毎日メニューが変わるので要チェックです！</p>
           </div>
-          <div class="col px-0 d-none d-lg-block">
-            <img src="../img/spots/asago/juana/3illust.svg" alt="">
+          <div class="col-lg-2 px-0 d-none d-lg-block">
+            <img style="width: 70%; transform:translateY(30%);" src="../img/spots/asago/juana/3illust.svg" alt="">
           </div>
         </div>
       </div>
